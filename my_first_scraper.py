@@ -44,4 +44,4 @@ def format(repositories_data):
 trending = request_github_trending("https://github.com/trending")
 extracted = extract(trending)
 answer = transform(extracted)
-print(answer)
+print(format(answer))
