@@ -31,7 +31,7 @@ def transform(html_repos):
 
 def format(repositories_data):
     res = "Developer, Repository Name, Number of Stars\n"
-    for i in range(0, 10):
+    for i in range(0, 25):
         devs = repositories_data[i]["developer"]
         reps = repositories_data[i]["repository_name"]
         stars = repositories_data[i]["nbr_stars"]
