@@ -1,4 +1,3 @@
-
 import requests
 from bs4 import BeautifulSoup
 
@@ -15,17 +14,21 @@ def extract(page):
 
 
 def transform(html_repos):
-    join_in = []
-    for num in html_repos:
+    data = []
+    for i in html_repos:
+        data_hash = {'developer': [], 'repository_name': [], 'nbr_stars': []}
 
-        repository_name = ''.join(num.select_one('h1.h3.lh-condensed').text.split())
+        all = i.select_one("a.d-inline-block")["href"].split("/")[1:-1]
+        developer, repos_name = all
+        nbr_stars = i.select_one("a.Link.Link--muted.d-inline-block.mr-3").text.strip()
 
-        number_stars = ' '.join(num.select_one('span.d-inline-block.float-sm-right').text.split())
+        data_hash["developer"] = developer
+        data_hash["repository_name"] = repos_name
+        data_hash["nbr_stars"] = nbr_stars
 
-        developer_name = num.select_one('img.avatar.mb-1.avatar-user')['alt']
+        data.append(data_hash)
 
-        join_in.append({'developer': developer_name, 'repository_name': repository_name, 'nbr_stars': number_stars})
-    return join_in
+    return data
 
 
 def format(repositories_data):
