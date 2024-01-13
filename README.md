@@ -1,35 +1,4 @@
-<div class="card-block">
-<div class="row">
-<div class="col tab-content">
-<div class="tab-pane active show" id="subject" role="tabpanel">
-<div class="row">
-<div class="col-md-12 col-xl-12">
-<div class="markdown-body">
-<p class="text-muted m-b-15">
-</p><h1>My First Scraper Ds</h1>
-<p>Remember to git add &amp;&amp; git commit &amp;&amp; git push each exercise!</p>
-<p>We will execute your function with our test(s), please DO NOT PROVIDE ANY TEST(S) in your file</p>
-<p>For each exercise, you will have to create a folder and in this folder, you will have additional files that contain your work. Folder names are provided at the beginning of each exercise under <code>submit directory</code> and specific file names for each exercise are also provided at the beginning of each exercise under <code>submit file(s)</code>.</p>
-<hr>
-<table>
-<thead>
-<tr>
-<th>My First Scraper Ds</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Submit directory</td>
-<td>.</td>
-</tr>
-<tr>
-<td>Submit file</td>
-<td>my_first_scraper.py</td>
-</tr>
-</tbody>
-</table>
-<h3>Description</h3>
+## Description
 <h2>Introduction</h2>
 <img src="https://storage.googleapis.com/qwasar-public/track-ds/meme_scraping.png" width="400">
 <p>HTML has been built to be "displayed". It's working very well... but when you want to build a script to collect actionable data, you are left with this:</p>
@@ -80,3 +49,18 @@ Google: BeautifulSoup python</p>
 </div>
 </div>
 </div>
+
+## Installation 
+
+For working with this project you need to install required libraries which located in `requirements.txt`. So do like:
+```bash
+  # write this command in your terminal
+  pip install -r requirements.txt
+```
+## Usage
+
+For using this project after installing required libraries you need to like:
+```bash
+  # write this command in your terminal
+  python my_first_scraper.py
+```
