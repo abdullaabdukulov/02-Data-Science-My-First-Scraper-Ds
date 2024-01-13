@@ -29,7 +29,6 @@ def run():
     page = request_github_trending(url)
     html_repos = extract(page)
     repositories_data = transform(html_repos)
-    print(repositories_data)
-    # print(format(repositories_data))
+    print(format(repositories_data))
     
 run()
