@@ -1,4 +1,3 @@
-## Description
 <h2>Introduction</h2>
 <img src="https://storage.googleapis.com/qwasar-public/track-ds/meme_scraping.png" width="400">
 <p>HTML has been built to be "displayed". It's working very well... but when you want to build a script to collect actionable data, you are left with this:</p>
