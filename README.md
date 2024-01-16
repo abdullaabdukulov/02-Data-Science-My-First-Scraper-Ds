@@ -1,6 +1,5 @@
 # Welcome to My First Scraper
-Qwasar
-<br>
+
 <img src="https://storage.googleapis.com/qwasar-public/track-ds/meme_scraping.png" width="400">
 ## Task
 <p>Remember to git add &amp;&amp; git commit &amp;&amp; git push each exercise!</p>
