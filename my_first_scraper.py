@@ -14,8 +14,11 @@ def transform(html_repos):
     for i in html_repos:
         my_dict = {'developer': "", 'repository_name': "", 'nbr_stars': ""}
         my_dict['nbr_stars'] = i.select_one("span.d-inline-block.float-sm-right").text.strip()
-        rep_name = i.select_one("h1.h3.lh-condensed")
-        my_dict['repository_name'] = rep_name.select_one("a")["href"]
+        rep_name = i.select_one("h2.h3.lh-condensed")
+        try:
+            my_dict['repository_name'] = rep_name.select_one("a")["href"]
+        except:
+            my_dict['repository_name'] = 'unknown'
         my_dict['developer'] = i.select_one("img.avatar.mb-1.avatar-user")["alt"]
         res.append(my_dict)
     return res
@@ -27,7 +30,8 @@ def format(repositories_data):
     for i in repositories_data:
         csv_str += i["developer"] + "," + i["repository_name"] + "," + i["nbr_stars"] + "\n"
         # print(i["developer"])
-    return (csv_str)
+    print(csv_str)
+    # return (csv_str)
     
 
 def runner():
@@ -39,4 +43,4 @@ def runner():
 
 
 
-# runner()
+runner()
