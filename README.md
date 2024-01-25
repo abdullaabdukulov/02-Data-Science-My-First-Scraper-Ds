@@ -1,15 +1,8 @@
-# Description
-
-The my_first_scraper.py project is a very interesting project in which the python bs4 library is involved.
-
-# Task
-
-The my_first_scraper.py task is very simply written in an understandable way.
-
-# Usage
-
-My_first_scraper.py project is useful to use, I recommend this project to others.
-
-# Installation
-
-There are two python libraries used in my_first_scraper.py, bs4 and requests, so there is no problem installing them.
+## Task
+The my_first_scraper.py project task is about getting github trending from 25 people on github trending
+## Description
+my_first_scraper.py project is very interesting project in this project we need to copy code from 25 people's github treding
+## Installation
+In my_first_scraper.py project, I have installed python libraries, these are bs4 and requests libraries
+## Usage
+In this project I used python libraries requests and beautifulsoup4
