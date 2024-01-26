@@ -6,22 +6,25 @@ def request_github_trending(url):
     return san
 
 def extract(page):
-    bu = []
+    rep = []
     soup = BeautifulSoup(page.text, 'html.parser')
-    rs = soup.find_all("article", class_="Box-row")
-    for r in rs:
-        bun = []
-        r_h1 = r.select_one("h1.h3.lh-condensed")
-        stars = r.select_one("span.d-inline-block.float-sm-right").text.strip()
-        bun.append(stars) 
-        name = r.select_one("img.avatar.mb-1.avatar-user")["alt"]
-        bun.append(name)
-        re_name = r_h1.select_one("a")["href"]
-        bun.append(re_name)
-        bu.append(bun)
-        
-        #print(bun)
-    return bu
+    repos = soup.find_all("article", class_="Box-row")
+    for repo in repos:
+        info = []
+
+        # Check if the selector matches any element
+        r_h1 = repo.select_one("h1.h3.lh-condensed")
+        if r_h1:
+            stars = repo.select_one("span.d-inline-block.float-sm-right").text.strip()
+            info.append(stars)
+            name = r_h1.select_one("a")["href"]
+            info.append(name)
+            developer = repo.select_one("img.avatar.mb-1.avatar-user")["alt"]
+            info.append(developer)
+            rep.append(info)
+
+    return rep
+
 
 def transform(html_repos):
     bu = []
