@@ -13,7 +13,7 @@ def extract(page):
         info = []
 
         # Check if the selector matches any element
-        r_h1 = repo.select_one("h1.h3.lh-condensed")
+        r_h1 = repo.select_one("h2.h3.lh-condensed")
         if r_h1:
             stars = repo.select_one("span.d-inline-block.float-sm-right").text.strip()
             info.append(stars)
@@ -22,6 +22,7 @@ def extract(page):
             developer = repo.select_one("img.avatar.mb-1.avatar-user")["alt"]
             info.append(developer)
             rep.append(info)
+        print(info)
 
     return rep
 
