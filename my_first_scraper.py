@@ -3,50 +3,53 @@ from bs4 import BeautifulSoup
 
 
 def request_github_trending(url):
-    san = requests.get(url)
-    return san
+    res = requests.get(url)
+    return res
 
 
 def extract(page):
-    bu = []
+    res = []
     soup = BeautifulSoup(page.text, 'html.parser')
     rs = soup.find_all("article", class_="Box-row")
     for r in rs:
-        bun = []
+        try:
+            iteam = []
+        except:
+            r_h1 = None
         r_h1 = r.select_one("h2.h3.lh-condensed")
         stars = r.select_one("span.d-inline-block.float-sm-right").text.strip()
-        bun.append(stars)
+        iteam.append(stars)
         name = r.select_one("img.avatar.mb-1.avatar-user")["alt"]
-        bun.append(name)
+        iteam.append(name)
         re_name = r_h1.select_one("a")["href"]
-        bun.append(re_name)
-        bu.append(bun)
+        iteam.append(re_name)
+        res.append(iteam)
 
-        print(bun)
-    return bun
+        #print(bun)
+    return res
 
 
 def transform(html_repos):
-    bu = []
+    res = []
     for i in html_repos:
         ban = {'developer': i[1], 'repository_name': i[2], 'nbr_stars': i[0]}
-        bu.append(ban)
-    return bu
+        res.append(ban)
+    return res
 
 
 def format(repositories_data):
-    csv_sun = "Developer,Repository Name,Number of Stars\n"
+    csv_data = "Developer,Repository Name,Number of Stars\n"
     for i in repositories_data:
-        csv_sun += i["developer"] + "," + i["repository_name"] + "," + i["nbr_stars"] + "\n"
-    return csv_sun
+        csv_data += i["developer"] + "," + i["repository_name"] + "," + i["nbr_stars"] + "\n"
+    return csv_data
 
 
-def chec():
+def check():
     url = "https://github.com/trending"
     page = request_github_trending(url)
-    buns = extract(page)
-    bun = transform(buns)
-    format(bun)
+    results = extract(page)
+    res = transform(results)
+    print(format(res))
 
 
-chec()
+check()
